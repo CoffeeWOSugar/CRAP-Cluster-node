@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-TARBALL=$(ls go*.linux-*.tar.gz 2>/dev/null | head -n1)
+TARBALL=$(ls ../go_dep/go*.linux-*.tar.gz 2>/dev/null | head -n1)
 
 if [[ -z "$TARBALL" ]]; then
   echo "Go tarball (go*.linux-*.tar.gz) not found in this directory."
@@ -9,6 +9,12 @@ if [[ -z "$TARBALL" ]]; then
 fi
 
 echo "Installing Go from $TARBALL to /usr/local/go..."
+
+if [[ "$(which go | wc -l)" -eq "1" ]]; then
+    echo "go already installed"
+    exit 0
+fi
+
 
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf "$TARBALL"
@@ -22,4 +28,3 @@ echo "Go installation complete. Log out and back in (or 'source ~/.profile') to 
 /usr/local/go/bin/go version || echo "Go installed, but 'go' not yet in PATH for this shell."
 EOF
 
-chmod +x /path/to/offline-setup/go/install-go.sh

@@ -11,7 +11,8 @@ fi
 echo "Installing Docker Engine and dependencies from local .deb files..."
 
 # Check if docker is already installed
-if [[ "$(docker --version)" ]]; then
+
+if [[ "$(which docker | wc -l)" -eq "1" ]]; then
     echo "Docker already installed"
     exit 0
 fi
