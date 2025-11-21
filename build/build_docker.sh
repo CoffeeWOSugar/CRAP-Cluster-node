@@ -2,7 +2,7 @@
 set -e
 
 # Run from inside the docker/ directory
-debs="$(find ~/CRAP-Cluster-node/docker_dep/*.deb | wc -l)"
+debs="$(find /home/vincent/CRAP-Cluster-node/docker_dep/*.deb | wc -l)"
 if [[  debs -eq "0" ]]; then
   echo "No .deb files found. Copy docker .debs here first."
   exit 1
