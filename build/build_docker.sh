@@ -2,7 +2,7 @@
 set -e
 
 # Run from inside the docker/ directory
-debs="$(find ../docker_dep/*.deb | wc -l)"
+debs="$(find ~/CRAP-Cluster-node/docker_dep/*.deb | wc -l)"
 if [[  debs -eq "0" ]]; then
   echo "No .deb files found. Copy docker .debs here first."
   exit 1
@@ -18,7 +18,7 @@ if [[ "$(which docker | wc -l)" -eq "1" ]]; then
 fi
 
 # Let apt handle dependency ordering using local files
-cd ../docker_dep
+cd ~/CRAP-Cluster-node/docker_dep
 sudo apt-get install ./containerd*.deb ./pigz*.deb ./docker-buildx*.deb ./docker-compose*.deb ./docker-ce-*.deb ./docker-ce_*.deb
 
 echo "Enabling and starting Docker service..."
