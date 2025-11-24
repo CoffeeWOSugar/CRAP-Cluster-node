@@ -3,7 +3,7 @@
 chmod +x build/*
 
 echo "Building docker"
-build/build_docker.sh
+build/build_docker.sh $1
 
 echo "Building go"
 build/build_go.sh

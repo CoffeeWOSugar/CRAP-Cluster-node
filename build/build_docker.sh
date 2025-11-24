@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
+# Redirect stdout to /dev/null to supress output if not verbose flag
+output="/dev/stdout"
+if [ "$1" != "-v" ]; then
+	output="/dev/null"
+fi
+
 # Run from inside the docker/ directory
 debs="$(find /home/vincent/CRAP-Cluster-node/dependencies/docker/*.deb | wc -l)"
 if [[  debs -eq "0" ]]; then
@@ -19,7 +25,7 @@ fi
 
 # Let apt handle dependency ordering using local files
 cd /home/vincent/CRAP-Cluster-node/dependencies/docker
-sudo dpkg -i ./containerd*.deb ./pigz*.deb ./docker-buildx*.deb ./docker-compose*.deb ./docker-ce-*.deb ./docker-ce_*.deb ./libslirp0*.deb ./slirp4netns*.deb
+sudo dpkg -i ./containerd*.deb ./pigz*.deb ./docker-buildx*.deb ./docker-compose*.deb ./docker-ce-*.deb ./docker-ce_*.deb ./libslirp0*.deb ./slirp4netns*.deb >"${output}"
 
 echo "Enabling and starting Docker service..."
 sudo systemctl enable docker
