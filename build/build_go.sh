@@ -26,5 +26,4 @@ fi
 
 echo "Go installation complete. Log out and back in (or 'source ~/.profile') to get go in PATH."
 /usr/local/go/bin/go version || echo "Go installed, but 'go' not yet in PATH for this shell."
-EOF
 
