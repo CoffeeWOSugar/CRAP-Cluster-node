@@ -19,7 +19,7 @@ fi
 
 # Let apt handle dependency ordering using local files
 cd /home/vincent/CRAP-Cluster-node/docker_dep
-sudo apt-get install ./containerd*.deb ./pigz*.deb ./docker-buildx*.deb ./docker-compose*.deb ./docker-ce-*.deb ./docker-ce_*.deb
+sudo dpkg -i ./containerd*.deb ./pigz*.deb ./docker-buildx*.deb ./docker-compose*.deb ./docker-ce-*.deb ./docker-ce_*.deb ./libslirp0*.deb ./slirp4netns*.deb
 
 echo "Enabling and starting Docker service..."
 sudo systemctl enable docker
