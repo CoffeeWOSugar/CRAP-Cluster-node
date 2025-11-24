@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-TARBALL=$(ls /home/vincent/CRAP-Cluster-node/go_dep/go*.linux-*.tar.gz 2>/dev/null | head -n1)
+TARBALL=$(ls /home/vincent/CRAP-Cluster-node/dependencies/go/go*.linux-*.tar.gz 2>/dev/null | head -n1)
 
 if [[ -z "$TARBALL" ]]; then
   echo "Go tarball (go*.linux-*.tar.gz) not found in this directory."
