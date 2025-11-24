@@ -18,7 +18,7 @@ if [[ "$(which docker | wc -l)" -eq "1" ]]; then
 fi
 
 # Let apt handle dependency ordering using local files
-cd ~/CRAP-Cluster-node/docker_dep
+cd /home/vincent/CRAP-Cluster-node/docker_dep
 sudo apt-get install ./containerd*.deb ./pigz*.deb ./docker-buildx*.deb ./docker-compose*.deb ./docker-ce-*.deb ./docker-ce_*.deb
 
 echo "Enabling and starting Docker service..."
